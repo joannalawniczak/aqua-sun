@@ -13,7 +13,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "normalize.css": "^3.0.3",
     "smooth-scroll": "github:cferdinandi/smooth-scroll",
     "spinkit": "^1.2.5"
   },
