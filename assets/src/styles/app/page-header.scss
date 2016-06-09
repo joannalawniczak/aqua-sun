@@ -1,0 +1,188 @@
+.page-header {
+    position: fixed;
+    z-index: 50;
+    width: 100%;
+    top: 0;
+    color: #ffffff;
+
+    .inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 70px;
+        transition: min-height .2s;
+    }
+
+    a {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .page-logo {
+        padding-right: 20px;
+        margin: 0;
+
+        svg {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+
+        li {
+            display: inline-block;
+            padding-left: 30px;
+
+            a {
+                font-size: 14px;
+                font-weight: 400;
+                letter-spacing: 1px;
+                padding: 10px;
+                position: relative;
+
+                &:hover {
+                    &:before {
+                        transform: scaleX(1);
+                    }
+                }
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: 10px;
+                    right: 10px;
+                    bottom: 6px;
+                    height: 1px;
+                    background: #ffffff;
+                    transform: scaleX(0);
+                    transition: transform .3s;
+                }
+            }
+        }
+
+        .toggle-menu {
+            display: none;
+            width: 32px;
+            height: 4px;
+            padding: 10px 0;
+            margin-left: 30px;
+            box-sizing: content-box;
+
+            span {
+                &,
+                &:before,
+                &:after {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    width: inherit;
+                    height: inherit;
+                    background: #ffffff;
+                    cursor: pointer;
+                    transition:
+                        transform .2s linear,
+                        background .01s linear .2s,
+                        top .25s linear .4s,
+                        bottom .25s linear .4s;
+                }
+
+                &:before {
+                    top: -10px;
+                }
+
+                &:after {
+                    bottom: -10px;
+                }
+            }
+        }
+    }
+
+    &.sticky {
+        .inner {
+            min-height: 54px;
+        }
+    }
+
+    @media all and (max-width: 950px) {
+        nav {
+            ul {
+                position: absolute;
+                z-index: -1;
+                top: -325px;
+                left: 0;
+                right: 0;
+                background: #111111;
+                padding-top: 100px;
+                transition: transform .6s cubic-bezier(.87,-.41,.19,1.44);
+
+                li {
+                    display: block;
+                    padding-left: 0;
+
+                    a {
+                        font-size: 16px;
+                        padding: 15px 30px;
+                        border-top: 1px #343434 solid;
+
+                        &:hover {
+                            background: #f73636;
+                        }
+
+                        &:before {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            .toggle-menu {
+                display: block;
+            }
+        }
+
+        &.menu-active {
+            & + main {
+                opacity: .3;
+            }
+
+            .inner {
+                min-height: 54px;
+            }
+
+            nav {
+                ul {
+                    transform: translate(0, 280px);
+                }
+
+                .toggle-menu span {
+                    background: transparent;
+
+                    &,
+                    &:before,
+                    &:after {
+                        transition:
+                            top .25s linear,
+                            bottom .25s linear,
+                            background .01s linear .25s,
+                            transform .2s linear .4s;
+                    }
+
+                    &:before {
+                        top: 0;
+                        transform: rotate(-45deg);
+                    }
+
+                    &:after {
+                        bottom: 0;
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+        }
+    }
+}

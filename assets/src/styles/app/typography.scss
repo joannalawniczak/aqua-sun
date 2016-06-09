@@ -1,0 +1,46 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #393632;
+}
+
+h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 76px;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.section-header {
+    position: relative;
+    font-size: 34px;
+    padding-bottom: 50px;
+    font-weight: 700;
+    margin: 0 0 50px;
+
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        width: 40px;
+        height: 3px;
+        transform: translate(-50%, 0);
+        background: #f73636;
+    }
+}
+
+.page {
+    p {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 34px;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,35 @@
+.inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 30px;
+
+	@media all and (max-width: 630px) {
+		padding: 0 15px;
+	}
+}
+
+.page {
+    padding-top: 130px;
+
+	@media all and (max-width: 900px) {
+		padding-top: 100px;
+	}
+
+	@media all and (max-width: 630px) {
+		padding-top: 80px;
+	}
+
+    .inner {
+        padding-bottom: 140px;
+
+		@media all and (max-width: 900px) {
+			padding-bottom: 100px;
+		}
+
+		@media all and (max-width: 630px) {
+			padding-bottom: 80px;
+		}
+    }
+}
+
+
