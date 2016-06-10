@@ -13,6 +13,7 @@
   "author": "Joanna Ławniczak <lawniczak.joanna@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "normalize-scss": "^5.0.3",
     "smooth-scroll": "github:cferdinandi/smooth-scroll",
     "spinkit": "^1.2.5"
   },
