@@ -6,6 +6,7 @@ import FormValidator from '../../../node_modules/form-validator/dist/form-valida
 export default function contactForm() {
 	const slideWrapper = document.querySelector( '.slide-wrapper' );
 	const formEl = slideWrapper.querySelector( 'form' );
+	const submitEl = formEl.querySelector( '.btn' );
 
 	// Form validation
 	const formValidator = new FormValidator(
@@ -21,8 +22,13 @@ export default function contactForm() {
 		},
 		{
 			success: () => {
-				slideWrapper.classList.add( 'message-active' );
-				formValidator.reset();
+				submitEl.classList.add( 'loading' );
+
+				setTimeout( () => {
+					slideWrapper.classList.add( 'message-active' );
+					formValidator.reset();
+					submitEl.classList.remove( 'loading' );
+				}, 3000 );
 			}
 		}
 	);
