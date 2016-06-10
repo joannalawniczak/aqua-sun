@@ -1,7 +1,8 @@
+@import "../../../node_modules/normalize-scss/sass/normalize/import-now";
+@import "../../../node_modules/spinkit/scss/spinners/7-three-bounce";
 @import "app/helpers";
 @import "app/reset";
 @import "app/typography";
-@import "../../../node_modules/spinkit/scss/spinners/7-three-bounce";
 @import "app/buttons";
 @import "app/layout";
 @import "app/page-header";
@@ -249,7 +250,7 @@ main {
 			position: relative;
 			width: 100%;
 			max-width: $col-width;
-			height: 390px;
+			height: 320px;
 			margin-left: $padding-width;
 
 			.slide {
@@ -318,9 +319,8 @@ main {
 					}
 
 					&.loading {
-						background-color: #ff4b10;
 
-						span {
+						.label {
 							display: none;
 						}
 
@@ -329,6 +329,8 @@ main {
 							margin: 0;
 
 							.sk-child {
+								height: 13px;
+								width: 13px;
 								background-color: #ffffff;
 							}
 						}
