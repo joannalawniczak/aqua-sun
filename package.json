@@ -1,7 +1,7 @@
 {
-  "name": "aqua-sun.pl",
+  "name": "aqua-sun",
   "version": "1.0.0",
-  "description": "",
+  "description": "Static layout of Aqua-Sun Consulting company page.",
   "scripts": {
     "build": "./node_modules/.bin/gulp build",
     "build:debug": "./node_modules/.bin/gulp build:debug"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://joannalawniczak@bitbucket.org/weenjoyit/aqua-sun.pl.git"
   },
-  "author": "",
+  "author": "Joanna Ławniczak <lawniczak.joanna@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "smooth-scroll": "github:cferdinandi/smooth-scroll",

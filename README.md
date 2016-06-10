@@ -3,10 +3,6 @@
 ## Preview:
 [http://joannalawniczak.github.io/aqua-sun/](http://joannalawniczak.github.io/aqua-sun/)
 
-## Technologies:
-- HTML
-- SASS
-
 ## Tested on:
 - Chrome 51
 - Firefox 47
@@ -17,4 +13,7 @@
 
 ## Assets building:
 - `npm run build` - production build
-- `npm run build:debug` - development build 
+- `npm run build:debug` - development build (ending by watch)
+
+## Note:
+The author of JavaScript code is [Oskar Wróbel](https://github.com/oskarwrobel).
