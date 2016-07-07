@@ -1,4 +1,4 @@
-import FormValidator from '../../../node_modules/form-validator/dist/form-validator.js';
+import FormValidator from '../../../node_modules/form-validator/dist/form-validator.es6.js';
 
 /**
  * Contact form validation and mock of success message.
@@ -9,9 +9,8 @@ export default function contactForm() {
 	const submitEl = formEl.querySelector( '.btn' );
 
 	// Form validation
-	const formValidator = new FormValidator(
-		formEl,
-		{
+	const formValidator = new FormValidator( formEl, {
+		rules: {
 			email: {
 				required: 'Podaj swój adres email.',
 				email: 'Niepoprawny adres email.'
@@ -20,18 +19,20 @@ export default function contactForm() {
 				required: 'Napisz wiadomość.'
 			}
 		},
-		{
-			success: () => {
-				submitEl.classList.add( 'loading' );
+		success: ( e ) => {
+			e.preventDefault();
 
-				setTimeout( () => {
-					slideWrapper.classList.add( 'message-active' );
-					formValidator.reset();
-					submitEl.classList.remove( 'loading' );
-				}, 3000 );
-			}
+			submitEl.classList.add( 'loading' );
+			formValidator.disable();
+
+			setTimeout( () => {
+				slideWrapper.classList.add( 'message-active' );
+				submitEl.classList.remove( 'loading' );
+				formValidator.reset();
+				formValidator.enable();
+			}, 3000 );
 		}
-	);
+	} );
 
 	// Close form message.
 	slideWrapper.querySelector( '.message .btn' ).addEventListener( 'click', () => {
