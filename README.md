@@ -1,4 +1,4 @@
-# Static layout of Aqua-Sun Consulting company page.
+# Static layout of company page.
 
 ## Preview:
 [http://joannalawniczak.github.io/aqua-sun/](http://joannalawniczak.github.io/aqua-sun/)
