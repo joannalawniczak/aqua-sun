@@ -1,41 +1,31 @@
 import smoothScroll from '../../../node_modules/smooth-scroll/dist/js/smooth-scroll.js';
+import mobileNavigation from './mobile-navigation.js';
 
 const maxAlpha = 0.9;
 const maxScrollPositionForAlpha = 300;
-const headerEl = document.querySelector( 'header' );
 let isSticky = false;
 
 /**
- * Initialization of header scripts.
+ * Initializes mobile navigation.
+ * Initializes Smooth scroll plugin.
+ * Initializes scroll spy set header opacity.
  */
 export default function header() {
-	// Toggle mobile header.
-	headerEl.querySelector( '.toggle-menu' ).addEventListener( 'click', ( e ) => {
-		e.preventDefault();
-		headerEl.classList.toggle( 'menu-active' );
-	} );
+	const headerEl = document.querySelector( 'header' );
 
-	// Attach smooth scroll to menu items.
-	[].forEach.call( headerEl.querySelectorAll( 'ul a' ), ( el ) => {
-		el.addEventListener( 'click', ( e ) => {
-			e.preventDefault();
-			smoothScroll.animateScroll( e.target.hash );
+	// Add mobile navigation support
+	mobileNavigation( headerEl );
 
-			// Close mobile navigation after clicking on menu item.
-			headerEl.classList.remove( 'menu-active' );
-		} );
-	} );
+	// Attach smooth scroll to every element with [data-scroll] attribute.
+	smoothScroll.init( { speed: 700 } );
 
 	// Add watcher on page scroll to control level of header opacity.
 	window.addEventListener( 'scroll', () => scrollSpy( headerEl, window.scrollY ) );
 	scrollSpy( headerEl, window.scrollY );
-
-	// Initialization of smooth scroll plugin.
-	smoothScroll.init( { speed: 700 } );
 }
 
 /**
- * Watch on scroll change and set opacity to the header element.
+ * Watches scroll and set opacity to the header element.
  *
  * @param {HTMLElement} headerEl
  * @param {Number} position scroll top position
@@ -53,14 +43,14 @@ function scrollSpy( headerEl, position ) {
 }
 
 /**
- * Count alpha depends on scroll position, max scroll position and max alpha.
+ * Counts opacity depends on scroll position, max scroll position and max alpha.
  *
  * @param {Number} currentPosition
  * @param {Number} maxPosition
  * @param {Number} maxAlpha
  * @returns {Number} alpha value from
  */
-function countAlpha( currentPosition, maxPosition, maxAlpha ) {
+function countOpacity( currentPosition, maxPosition, maxAlpha ) {
 	if ( currentPosition >= maxPosition ) {
 		return maxAlpha;
 	}
@@ -69,18 +59,19 @@ function countAlpha( currentPosition, maxPosition, maxAlpha ) {
 		return 0;
 	}
 
-	let progress = ( currentPosition * 100 ) / maxPosition;
+	const progress = ( currentPosition * 100 ) / maxPosition;
+
 	return progress * maxAlpha / 100;
 }
 
 /**
- * Set opacity for header background.
+ * Sets opacity for header background.
  *
  * @param {HTMLElement} headerEl
- * @param {Number} position scroll top position
+ * @param {Number} position Scroll top position
  */
 function setAlphaToElement( headerEl, position ) {
-	const alpha = countAlpha( position, maxScrollPositionForAlpha, maxAlpha );
+	const alpha = countOpacity( position, maxScrollPositionForAlpha, maxAlpha );
 
 	headerEl.style.backgroundColor = `rgba(0, 0, 0, ${ alpha })`;
 }
