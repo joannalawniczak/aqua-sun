@@ -1,7 +1,7 @@
 import FormValidator from '../../../node_modules/form-validator/dist/form-validator.es6.js';
 
 /**
- * Contact form validation and mock of success message.
+ * Validates contact form and mocks success message.
  */
 export default function contactForm() {
 	const slideWrapper = document.querySelector( '.slide-wrapper' );
