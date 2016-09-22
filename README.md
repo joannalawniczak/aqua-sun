@@ -1,5 +1,8 @@
 # Static layout of company page.
 
+[![Dependency Status](https://david-dm.org/joannalawniczak/aqua-sun.svg)](https://david-dm.org/joannalawniczak/aqua-sun)
+[![devDependency Status](https://david-dm.org/joannalawniczak/aqua-sun/dev-status.svg)](https://david-dm.org/joannalawniczak/aqua-sun?type=dev)
+
 ## Preview:
 [http://joannalawniczak.github.io/aqua-sun/](http://joannalawniczak.github.io/aqua-sun/)
 
